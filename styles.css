@@ -2,76 +2,187 @@
   margin: 0;
   padding: 0;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 html {
   box-sizing: border-box;
   font-family: 'Open Sans', helvetica, arial, sans-serif;
   font-size: 16px;
 }
-
 main {
   margin: 0 auto;
   max-width: 1450px;
   padding-left: 20px;
   padding-right: 20px;
 }
-
-/* TODO taka ætti padding af main þegar komið er fyrir ofan hámarksbreidd */
-
+@media (min-width: 1490px){
+  main {
+      padding-left: 0px;
+      padding-right: 0px;
+ }
+}
 h1 {
   text-align: center;
   margin: 20px 0;
 }
-
 .text {
   margin-bottom: 20px;
 }
-
 .text p {
   margin-bottom: 20px;
 }
-
 .image {
   max-width: 100%;
   margin-bottom: 20px;
 }
-
-/* grid fyrir efni, setja þarf upp í html */
-
+.grid{
+  max-width: 1450px;
+  margin: 0 auto;
+}
+@media (max-width: 999px){
+  .grid :nth-child(2){
+      flex-direction: column-reverse;
+ }
+}
 .grid__row {
   display: flex;
   flex-direction: column;
   margin-left: -10px;
   margin-right: -10px;
 }
-
+@media (min-width: 1000px){
+  .grid__row{
+      flex-direction: row;
+ }
+}
 .grid__col {
   width: 100%;
   padding-right: 10px;
   padding-left: 10px;
 }
-
-/* TODO setja upp grid fyrir >= 1000px */
-
-/* TODO koma mynd fyrir á öðrum stað í < 1000px */
-
-/* grid fyrir cards */
-
-.cards {
+@media (min-width: 1000px){
+  .grid__col{
+      width: 50%;
+      margin-bottom: 40px;
+ }
 }
-
-/* TODO útfæra grid fyrir cards */
-
-/*
-  .card kemur óbreytt úr sýnilausn á verkefni 5 fyrir utan responsive stíla og
-  að það fær `height: 100%;`
-  Sýnilausn verður gefin út við lok dags miðvikudaginn 3. okt
-*/
-
-/* TODO .card stílar úr v5 (eða sýnilausn...) */
-
-/* TODO responsive stílar fyrir .card */
+.cards__col{
+  width: 100%;
+}
+@media (min-width: 700px){
+  .cards__col{
+      width: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+ }
+}
+@media (min-width: 1000px){
+  .cards__col{
+      width: 33.33333%;
+ }
+}
+@media (max-width: 699px){
+  .cards__col{
+      padding-bottom: 20px;
+ }
+}
+.cards__row{
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (min-width: 700px){
+  .cards__row{
+      margin-left: -10px;
+      margin-right: -10px;
+ }
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 0.7em;
+  width: 100%;
+ /* hvað er þetta að gera?? */
+  max-width: 470px;
+  max-height: 300px;
+  overflow: hidden;
+  height: 100%;
+  background-color: #fff;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+}
+@media (max-width: 699px) {
+  .card {
+      max-width: 100%;
+      max-height: 100%;
+      border: none;
+      border-radius: 0px;
+      border-bottom: 2px solid #aaa;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
+      padding-bottom: 20px;
+ }
+}
+@media (min-width: 700px) {
+  .card {
+      margin-bottom: 40px;
+      height: 300px;
+ }
+}
+.card__headline{
+  margin-bottom: 1em;
+  font-size: 1.375em;
+  line-height: 1em;
+  word-break: break-word;
+}
+.card__textiogmynd {
+  display: flex;
+  flex: 1;
+}
+@media (max-width: 699px) {
+  .card__textiogmynd {
+      flex-direction: column;
+ }
+}
+.card__text{
+  font-size: 1em;
+  line-height: 1.375em;
+  overflow: auto;
+  word-break: break-word;
+}
+@media (max-width: 699px) {
+  .card__text {
+      margin-bottom: 20px;
+ }
+}
+.card__image {
+  padding-left: 1em;
+  flex: 0 0 150px;
+}
+@media (max-width: 699px) {
+  .card__image {
+      padding-left: 0;
+ }
+}
+.card__imgsrc{
+  max-width: 100%;
+}
+.listi{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+ /* hvað gerir þetta?*/
+  list-style: none;
+}
+.listaord{
+  font-weight: bold;
+  padding-right: 0.5em;
+}
